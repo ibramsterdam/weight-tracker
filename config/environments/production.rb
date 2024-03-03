@@ -72,6 +72,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "weight_tracker1_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: Rails.application.credentials.mailer.smtp_host,
+    port: Rails.application.credentials.mailer.smtp_port,
+    domain: Rails.application.credentials.mailer.smtp_domain,
+    user_name: Rails.application.credentials.mailer.smtp_username,
+    password: Rails.application.credentials.mailer.smtp_password,
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
