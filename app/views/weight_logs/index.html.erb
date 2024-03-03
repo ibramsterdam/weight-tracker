@@ -11,4 +11,5 @@
   <div id="weight_logs" class="min-w-full">
     <%= render @weight_logs %>
   </div>
+  <%= button_to('Logout', destroy_user_session_path, :method => 'delete') %>
 </div>
