@@ -1,0 +1,22 @@
+<div id="<%= dom_id weight_log %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight:</strong>
+    <%= weight_log.weight %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Measured at:</strong>
+    <%= weight_log.measured_at %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= weight_log.user_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this weight log", weight_log, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this weight log", edit_weight_log_path(weight_log), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
