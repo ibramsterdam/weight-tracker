@@ -1,0 +1,17 @@
+# When updating this file, manually update on server
+version: "3.8"
+services:
+  web:
+    container_name: weight-tracker
+      #image: ghcr.io/ibramsterdam/weight-tracker:latest
+    # uncomment for local debug
+    build:
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    command: ["./bin/rails", "server"]
+    ports:
+      - "3000:3000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./master.key:/rails/config/master.key
